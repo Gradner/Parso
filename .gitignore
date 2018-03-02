@@ -1,0 +1,9 @@
+# Node Vars
+node_modules/
+# Page Data
+data/adulthookups.com
+data/easysex.com
+data/hookupcloud.com
+data/sexsearch.com
+# Generated Pages
+public/

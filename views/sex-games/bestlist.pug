@@ -1,0 +1,63 @@
+//-
+	mixins
+//-
+mixin fa(type)
+	i.fa(aria-hidden='true' class=type)
+
+mixin catNav(page)
+	li.category.text-center
+		+fa('fa-arrow-circle-right')
+		a(href='/' + page.domaindir + '/' + page.category) #{' ' + page.category.toUpperCase()}
+
+mixin pageNav(page, pageAddr, pageName)
+	li.text-center
+		+fa('fa-arrow-circle-right')
+		a(href='/' + page.domaindir + '/' + page.category + '/' + pageAddr) #{' ' + pageName}
+//-
+//-
+	Top of page sub-category navigation
+//-
+#best-list
+	.container
+		.row
+			.col-sm-12
+				ol.breadcrumb
+					li.breadcrumb-item: a(href='/') Home
+					li.breadcrumb-item: a(href='/' + page.domaindir) Sex Games
+					if page.category == page.name
+						li.breadcrumb-item.active: a(href='/' + page.domaindir + '/' + page.category) #{page.categoryClean}
+					if page.category != page.name
+						li.breadcrumb-item: a(href='/' + page.domaindir + '/' + page.category) #{page.categoryClean}
+						li.breadcrumb-item.active: a(href='/' + page.domaindir + '/' + page.category + '/' + page.name) #{page.nameClean}
+		.row
+			<!-- generate this navigation -->
+			h2#top10.col-sm-12.text-center #{page.titleText}
+			.col-sm-12
+				.col-xs-12.category-box
+					ul.category-nav
+						+catNav(page)
+						case page.category
+							when 'general'
+								+pageNav(page, '3d-sex-games', '3D Sex Games')
+								+pageNav(page, 'flash-sex-games', 'Flash Sex Games')
+								+pageNav(page, 'free-sex-games', 'Free Sex Games')
+								+pageNav(page, 'interactive-sex-games', 'Interactive Sex Games')
+								+pageNav(page, 'mobile-sex-games', 'Mobile Sex Games')
+								+pageNav(page, 'premium-sex-games', 'Premium Sex Games')
+								+pageNav(page, 'vr-sex-games', 'VR Sex Games')
+							when 'lgbt'
+								+pageNav(page, 'bisexual-sex-games', 'Bisexual Sex Games')
+								+pageNav(page, 'gay-sex-games', 'Gay Sex Games')
+								+pageNav(page, 'lesbian-sex-games', 'Lesbian Sex Games')
+								+pageNav(page, 'transexual-sex-games', 'Transexual Sex Games')
+							when 'niche'
+								+pageNav(page, 'adult-casino-games', 'Adult Casino Games')
+								+pageNav(page, 'cartoon-sex-games', 'Cartoon Sex Games')
+								+pageNav(page, 'dress-up-games', 'Dress Up Games')
+								+pageNav(page, 'hentai-sex-games', 'Hentai Sex Games')
+								+pageNav(page, 'meet-n-fuck-sex-games', 'Meet N Fuck Sex Games')
+								+pageNav(page, 'parody-sex-games', 'Parody Sex Games')
+								+pageNav(page, 'pokemon-sex-games', 'Pokemon Sex Games')
+								+pageNav(page, 'rpg-sex-games', 'RPG Sex Games')
+								+pageNav(page, 'sex-simulator-games', 'Sex Simulator Games')
+			<!-- end generated content -->

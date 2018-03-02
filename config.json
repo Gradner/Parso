@@ -1,0 +1,4 @@
+{
+	"globConfig": "data/*.txt",
+	"pageEnv": "test"
+}

@@ -137,11 +137,7 @@ function createPageObject (data, callback){
 	domain = splitAddr[2].toString().replace("www.", "");
 
 	page.domain = domain.toLowerCase();
-	if(page.domain == 'adulthookups.com'){
-		page.domaindir = 'adult-sex-games';
-	} else {
-		page.domaindir = splitAddr[3];
-	}
+    page.domaindir = splitAddr[3];
 	page.category = splitAddr[4].toLowerCase();
 	page.categoryClean = toTitleCase(page.category);
 	page.name = splitAddr[5] || splitAddr[4];
@@ -259,12 +255,12 @@ function createPageObject (data, callback){
 // In this step we render our pug layout files using the page object we just created
 // and save it to a directory based on the page's URL value, serving a dual purpose.
 //
-// Each page can be accessed by visitng http://localhost:3000/public/domain/category/page
+// Each page can be accessed by visitng http://localhost:3000/public/domain/directory/category/page
 // and the HTML files we've generated can simply be copied over to the production server
 // once we've confirmed they're ready to go.
 
 	page.listItems = listItems;
-	var pageHtml = pug.renderFile('./views/sex-games.pug', {page: page});
+	var pageHtml = pug.renderFile('./views/layout.pug', {page: page});
 	var targetDir;
 	if(page.category != page.name){
 		targetDir = './public/' + page.domain + '/' + page.domaindir + '/' + page.category + '/' + page.name + '/index.html';

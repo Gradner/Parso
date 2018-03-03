@@ -1,0 +1,25 @@
+//-
+	Basic page header data
+//-
+title #{page.title}
+meta(
+	content=page.description,
+	name='description'
+)
+link(
+	href=page.address,
+	rel='canonical'
+)
+meta(
+	name='viewport',
+	content='device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
+)
+link(
+	href='http://static.' + page.domain + '/de/res/site-public/' + page.domain + '/favicon.gif',
+	rel='icon',
+	type='image/gif'
+)
+link(
+	href='http://static.' + page.domain + '/de/res/site-public/' + page.domain + '/favicon.ico',
+	rel='shortcut icon'
+)
